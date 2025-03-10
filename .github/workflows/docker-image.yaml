@@ -24,9 +24,12 @@ jobs:
 
     - name: Push Docker Image
       run: docker push ravindradevops72/ravi-image:v1
-      
+
     - name: Create Container from Docker Image
       run: docker run -itd --name ravi-cont1 ravindradevops72/ravi-image:v1
+
+    - name: Store Container logs into file
+      run: docker logs ravi-cont1>container_logs.txt
 
 
 
