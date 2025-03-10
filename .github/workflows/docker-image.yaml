@@ -23,7 +23,11 @@ jobs:
       run: echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
 
     - name: Push Docker Image
-      run: docker push ravindradevops72/ravi-image:v1   
+      run: docker push ravindradevops72/ravi-image:v1
+      
+    - name: Create Container from Docker Image
+      run: docker run -itd --name ravi-cont1 ravindradevops72/ravi-image:v1
+
 
 
       
